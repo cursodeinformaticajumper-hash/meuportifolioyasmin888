@@ -2,254 +2,212 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Minha Biografia</title>
+    <title>Meu Portfólio</title>
     <link rel="stylesheet" href="port.css">
-    <script src="https://unpkg.com"></script>
     <style>
-        /* Esta é a faixa escura/azul que fica no centro da tela */
-        .container-central {
-            background-color: rgba(15, 23, 42, 0.85); /* Fundo escuro azulado transparente */
-            max-width: 750px;
-            margin: 0 auto;
-            min-height: 100vh;
-            padding: 40px 45px;
-            box-sizing: border-box;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
-            position: relative; /* Permite posicionar o gato do fone na lateral */
-        }
+      /* Esta é a faixa escura/azul que fica no centro da tela */
+      .container-central {
+        background-color: rgba(15, 23, 42, 0.85); /* Fundo escuro azulado transparente */
+        max-width: 750px;                         
+        margin: 0 auto;                           
+        min-height: 100vh;                        
+        padding: 40px 45px;                       
+        box-sizing: border-box;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);  
+        position: relative;                       /* Permite posicionar o gato do fone na lateral */
+      }
 
-        /* Estilo padrão da imagem redonda do personagem */
-        .imagem-anime {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #5971a3c4;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: block;
-            margin: 0 auto 30px auto;
-        }
+      /* Estilo padrão da imagem redonda do personagem */
+      .imagem-anime {
+        width: 250px; 
+        height: 250px; 
+        border-radius: 50%; 
+        object-fit: cover; 
+        border: 5px solid #5971a3c4;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: block;
+        margin: 0 auto 30px auto; 
+      }
 
-        /* Hover da imagem */
-        .imagem-anime:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px #5c77adb7;
-            cursor: pointer;
-        }
+      /* Hover da imagem */
+      .imagem-anime:hover {
+        transform: scale(1.05); 
+        box-shadow: 0 0 25px #5c77adb7; 
+        cursor: pointer; 
+      }
 
-        /* Estilo do bloco de texto (Biografia) */
-        .text {
-            color: #ffffff;
-        }
+      /* Estilo do bloco de texto (Biografia) */
+      .text {
+        color: #ffffff;            
+      }
 
-        /* Estilo do Título */
-        .text h1 {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 30px;
-            color: #799be0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+      /* Estilo do Título */
+      .text h2 {
+        text-align: center;
+        font-size: 32px;           
+        margin-bottom: 30px;
+        color: #799be0;            
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
 
-        .text h2 {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 30px;
-            color: #c0cadd;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+      /* Estilo dos Parágrafos em formato de TEXTO livro/corrido */
+      .text p {
+        font-size: 19px;           
+        text-align: justify;       
+        text-justify: inter-word;  
+        line-height: 1.8;          
+        margin-bottom: 25px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); 
+        text-indent: 20px;         
+      }
 
-        /* Estilo dos Parágrafos em formato de TEXTO livro/corrido */
-        .text p {
-            font-size: 19px;
-            text-align: justify;
-            text-justify: inter-word;
-            line-height: 1.8;
-            margin-bottom: 25px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-            text-indent: 20px;
-        }
+      /* ==========================================
+         SISTEMA DOS GATINHOS AMASSÁVEIS E CONFETES
+         ========================================== */
 
-        /* Estilo base para as imagens dos gatos */
-        .squish-cat {
-            position: relative;
-            display: inline-block;
-        }
+      /* Estilo base para as imagens dos gatos */
+      .squish-cat {
+        position: relative;
+        display: inline-block;
+      }
 
-        .squish-cat img {
-            width: 150px;
-            cursor: grab;
-            transform-origin: center bottom;
-            transition: transform 0.2s ease-in-out;
-            display: block;
-            background: transparent !important;
-        }
+      .squish-cat img {
+        width: 150px;            
+        cursor: grab;
+        transform-origin: center bottom;
+        transition: transform 0.2s ease-in-out; 
+        display: block;
+        background: transparent !important; 
+      }
 
-        /* Animação de amassar quando passa o mouse */
-        .squish-cat img:hover {
-            animation: amassarGato 0.6s ease-in-out infinite alternate;
-        }
+      /* Animação de amassar quando passa o mouse */
+      .squish-cat img:hover {
+        animation: amassarGato 0.6s ease-in-out infinite alternate;
+      }
 
-        .squish-cat img:active {
-            cursor: grabbing;
-        }
+      .squish-cat img:active {
+        cursor: grabbing;
+      }
 
-        /* GATO 1: Fone de Ouvido (Configurações exclusivas para o GIF Esquerdo) */
-        .gato-lateral-esquerdo {
-            position: absolute;
-            left: -250px;   /* Afasta o gatinho mais para a esquerda, fora da faixa azul */
-            top: 320px;     /* Ajusta a altura dele na tela */
-        }
+      /* GATO 1: Fone de Ouvido (Flutuando no Lado Esquerdo do texto) */
+      .gato-lateral-esquerdo {
+        position: absolute;
+        left: -180px;            
+        top: 350px;              
+      }
 
-        /* Altera o tamanho especificamente apenas do GIF esquerdo */
-        .gato-lateral-esquerdo img {
-            width: 220px !important; 
-        }
+      /* GATO 2: Gato Original (No final do site, abaixo do texto) */
+      .gato-no-final {
+        margin: 40px auto 10px auto;
+        display: block;
+        text-align: center;
+        width: 150px;
+      }
 
-        /* GATO 2: Gato Original (No final do site, abaixo do texto) */
-        .gato-no-final {
-            margin: 40px auto 10px auto;
-            display: block;
-            text-align: center;
-            width: 150px;
-        }
+      /* --- Efeito de Confete do Gato com Fone --- */
+      .confete {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        bottom: 40px;
+        left: 50%;
+        opacity: 0;
+        pointer-events: none;
+      }
 
-        /* Animações (Keyframes) */
-        @keyframes amassarGato {
-            0% { transform: scale(1, 1); }
-            50% { transform: scale(1.15, 0.85); }
-            100% { transform: scale(0.9, 1.1); }
-        }
+      /* Cores dos confetes */
+      .c1 { background-color: #ffeb3b; }
+      .c2 { background-color: #ff4081; }
+      .c3 { background-color: #00e5ff; }
+      .c4 { background-color: #76ff03; }
 
-        @keyframes voarConfete {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(var(--dx), var(--dy)) scale(0.5);
-                opacity: 0;
-            }
-        }
+      /* Disparar confetes ao passar o mouse */
+      .gato-lateral-esquerdo:hover .confete {
+        animation: voarConfete 0.8s ease-out infinite;
+      }
 
-        /* ESTILOS DA SEÇÃO DE REDES SOCIAIS */
-        .container-redes {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin: -10px auto 35px auto;
-        }
+      /* Direções dos confetes */
+      .gato-lateral-esquerdo:hover .c1 { animation-delay: 0s; --dx: -60px; --dy: -120px; }
+      .gato-lateral-esquerdo:hover .c2 { animation-delay: 0.1s; --dx: 60px; --dy: -140px; }
+      .gato-lateral-esquerdo:hover .c3 { animation-delay: 0.2s; --dx: -30px; --dy: -160px; }
+      .gato-lateral-esquerdo:hover .c4 { animation-delay: 0.3s; --dx: 40px; --dy: -100px; }
 
-        .icone-rede {
-            color: #799be0;
-            font-size: 36px;
-            transition: transform 0.2s ease, color 0.2s ease, filter 0.2s ease;
-            text-decoration: none;
-        }
+      /* Animações (Keyframes) */
+      @keyframes amassarGato {
+        0% { transform: scale(1, 1); }
+        50% { transform: scale(1.15, 0.85); }
+        100% { transform: scale(0.9, 1.1); }
+      }
 
-        /* Efeito interativo ao passar o mouse */
-        .icone-rede:hover {
-            color: #c0cadd;
-            transform: scale(1.2);
-            filter: drop-shadow(0 0 8px #5c77adb7);
+      @keyframes voarConfete {
+        0% {
+          transform: translate(0, 0) scale(1);
+          opacity: 1;
         }
-
-        /* ESTILOS DO MINI CALENDÁRIO */
-        .calendario-mini {
-            background-color: rgba(15, 23, 42, 0.9);
-            border: 2px solid #5971a3c4;
-            border-radius: 12px;
-            padding: 12px;
-            width: 200px;
-            margin-top: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            font-family: 'EB Garamond', serif;
-            color: #ffffff;
-            user-select: none;
+        100% {
+          transform: translate(var(--dx), var(--dy)) scale(0.5);
+          opacity: 0;
         }
-
-        .calendario-titulo {
-            font-size: 16px;
-            font-weight: bold;
-            color: #799be0;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-            text-align: center;
-        }
-
-        .calendario-dias-semana {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            font-size: 11px;
-            color: #c0cadd;
-            font-weight: bold;
-            margin-bottom: 5px;
-            text-align: center;
-        }
-
-        .calendario-grade {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 4px;
-            font-size: 13px;
-            text-align: center;
-        }
-
-        .calendario-grade span {
-            display: block;
-            height: 22px;
-            line-height: 22px;
-            border-radius: 4px;
-        }
-
-        .calendario-grade .dia-especial {
-            background-color: #799be0;
-            color: #0f172a;
-            font-weight: bold;
-            box-shadow: 0 0 10px #799be0;
-            cursor: pointer;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-        }
-
-        .calendario-grade .dia-especial:hover {
-            transform: scale(1.2);
-            background-color: #c0cadd;
-            box-shadow: 0 0 15px #c0cadd;
-        }
+      }
     </style>
 </head>
-<body style="background-image: url('Bio/Imagens/Design sem nome_20260819_130855_0000.png'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; min-height: 100vh; margin: 0; font-family: 'EB Garamond', serif; color: white; text-align: center;">
+<body>
 
     <!-- Faixa central do seu site -->
     <div class="container-central">
 
-        <!-- LADO ESQUERDO: Gato com fone de ouvido + Calendário -->
+        <!-- Gato com fone de ouvido na Esquerda (Sem fundo branco e solta confete) -->
         <div class="squish-cat gato-lateral-esquerdo">
-            <img src="Imagens/12427289_7da53.gif" class="sebastian<3" />
+            <img src="https://postimg.co" alt="Gato com fone" />
             <span class="confete c1"></span>
             <span class="confete c2"></span>
             <span class="confete c3"></span>
             <span class="confete c4"></span>
-
-            <!-- Calendário interno do gatinho -->
-            <div class="calendario-mini">
-                <div class="calendario-titulo">OUTUBRO</div>
-                <div class="calendario-dias-semana">
-                    <span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span>
-                </div>
-                <div class="calendario-grade">
-                    <span></span><span></span><span></span><span></span>
-                    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span>
-                    <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
-                    <span class="dia-especial" title="Meu Aniversário! 🎉">15</span>
-                    <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span>
-                    <span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span>
-                    <span>30</span><span>31</span>
-                </div>
-            </div>
         </div>
 
-        <!-- LADO DIREITO: Disco de Vinil Giratório (NOVO) -->
-    </div>
+        <!-- Imagem do personagem no topo -->
+        <img src="Imagens/jujutsu-kaisen-season-2-episode-1280x640.jpg" class="imagem-anime">
+
+        <!-- Bloco da Biografia -->
+        <div class="text">
+            <h2>Minha Biografia</h2>
+            
+            <p>
+                Gosto bastante de química e de jogos como Dead by Daylight, Minecraft, Roblox, Resident Evil, Mortal Kombat, Skullgirls e Stardew Valley. 
+                Além disso, gosto bastante de cozinhar, ler, desenhar com giz, ouvir música, maquiagem, jogar vôlei, badminton, entre outras coisas.
+            </p>
+
+            <p>
+                Tenho 16 anos e faço aniversário no dia 15 de outubro (bem no Dia dos Professores). 
+                Meus objetivos são ter uma casa, uma motinha elétrica, um carro, estudar para o ENEM, passar no ENEM, fazer faculdade, ganhar bem, 
+                ter um emprego, saber falar vários idiomas, viajar para a Suíça, ter uma poupança e muito mais.
+            </p>
+
+            <p>
+                Recentemente comecei a estudar informática e gostei bastante. Talvez eu busque evoluir futuramente, mas por enquanto quero focar mais nos meus estudos 
+                e conseguir fazer uma faculdade boa. Ainda não sei muito bem o que fazer, talvez procurar um emprego para já começar a economizar dinheiro.
+            </p>
+
+            <p>
+                Ultimamente estou lendo bastante por conta dos trabalhos de escola ou quando estou afim. Os livros que eu li foram "Senhora" de José de Alencar, 
+                "Iracema" de José de Alencar, "A Hora da Estrela" de Clarice Lispector, "As Vantagens de Ser Invisível", entre outros. 
+                Normalmente, quando termino de ler, eu faço uma review no Skoob.
+            </p>
+
+            <p>
+                Além de ler livros, gosto muito de assistir a filmes e também, quando acabo, eu os avalio, só que no Letterboxd. Gosto bastante de filmes, 
+                acho que é uma das artes mais bonitas que o ser humano já criou e a melhor forma de se expressar e de sentir algo. Se quer conhecer alguém, 
+                pergunte seu filme favorito. Conclui-se que sou uma pessoa de vários hobbies; porém, não sou boa em nenhum, mas gosto disso, até porque deve ser tão chato só fazer uma coisa.
+            </p>
+        </div>
+
+        <!-- Gato original fixado no FINAL do site -->
+        <div class="squish-cat gato-no-final">
+            <img src="https://ibb.co" alt="Gatinho original" />
+        </div>
+
+    </div> <!-- Fim da faixa central -->
+
 </body>
 </html>
