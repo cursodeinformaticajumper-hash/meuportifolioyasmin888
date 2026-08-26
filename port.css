@@ -1,0 +1,254 @@
+/* ========================================================
+   1. IMPORTAÇÃO DE FONTES (Google Fonts)
+   ======================================================== */
+@import url('https://googleapis.com');
+@import url('https://googleapis.com');
+
+/* ========================================================
+   2. CONFIGURAÇÃO BASE E PLANO DE FUNDO
+   ======================================================== */
+body {
+    background-image: url("../Bio/Imagens/Design sem nome_20260819_130855_0000.png");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    min-height: 100vh; 
+    margin: 0; 
+    font-family: 'EB Garamond', serif; 
+    color: white; 
+    text-align: center; 
+}
+
+/* ========================================================
+   3. LAYOUT E CONTEÚDO CENTRAL
+   ======================================================== */
+.biografia-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-wrap: wrap; /* Organiza em fila em telas menores */
+}
+
+.texto-bio {
+    flex: 1;
+    min-width: 300px;
+    text-align: justify;
+}
+
+/* ========================================================
+   4. ESTILOS DO BLOCO DE TEXTO E TÍTULOS (NOVO EFEITO)
+   ======================================================== */
+/* Estilo do Título Principal com efeito de transição de cores neon */
+.text h1 {
+    text-align: center;
+    font-size: 38px;                             /* Tamanho de destaque */
+    font-family: 'Orbitron', sans-serif;         /* Nova fonte aplicada */
+    font-weight: 700;
+    letter-spacing: 4px;                         /* Espaçamento elegante */
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(121, 155, 224, 0.4); 
+    
+    /* Ativa a animação: troca de cor contínua e infinita */
+    animation: alternarTonsAzul 4s ease-in-out infinite; 
+}
+
+/* Regra da animação que faz o título pulsar nos tons de azul do seu site */
+@keyframes alternarTonsAzul {
+    0% {
+        color: #799be0;                          /* Azul claro padrão */
+        text-shadow: 0 0 15px rgba(121, 155, 224, 0.6);
+    }
+    50% {
+        color: #c0cadd;                          /* Tom cinza/azul claro */
+        text-shadow: 0 0 25px rgba(192, 202, 221, 0.8);
+    }
+    100% {
+        color: #799be0;                          /* Retorna ao azul padrão */
+        text-shadow: 0 0 15px rgba(121, 155, 224, 0.6);
+    }
+}
+
+/* ========================================================
+   5. INTERATIVIDADE DOS GATINHOS AMASSÁVEIS
+   ======================================================== */
+.squish-cat img {
+    width: 150px; 
+    cursor: grab;
+    transform-origin: center bottom;
+    transition: transform 0.2s ease-in-out; 
+    display: block;
+}
+
+.squish-cat img:hover {
+    animation: amassarGato 0.6s ease-in-out infinite alternate;
+}
+
+.squish-cat img:active {
+    cursor: grabbing;
+}
+
+@keyframes amassarGato {
+    0% { transform: scale(1, 1); }
+    50% { transform: scale(1.15, 0.85); }
+    100% { transform: scale(0.9, 1.1); }
+}
+
+/* Configuração exclusiva para posicionar o gatinho esquerdo flutuante */
+.gato-lateral-esquerdo {
+    position: absolute;
+    left: -250px;  
+    top: 320px;    
+}
+
+.gato-lateral-esquerdo img {
+    width: 220px !important; /* Mantém apenas o gatinho do topo maior */
+}
+
+/* ========================================================
+   6. INTERATIVIDADE DO MINI CALENDÁRIO (LADO ESQUERDO)
+   ======================================================== */
+.calendario-mini {
+    background-color: rgba(15, 23, 42, 0.9);
+    border: 2px solid #5971a3c4;
+    border-radius: 12px;
+    padding: 12px;
+    width: 200px;
+    margin-top: 15px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    font-family: 'EB Garamond', serif;
+    color: #ffffff;
+    user-select: none;
+}
+
+.calendario-titulo {
+    font-size: 16px;
+    font-weight: bold;
+    color: #799be0;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.calendario-dias-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-size: 11px;
+    color: #c0cadd;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.calendario-grade {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.calendario-grade span {
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 4px;
+}
+
+.calendario-grade .dia-especial {
+    background-color: #799be0;
+    color: #0f172a;
+    font-weight: bold;
+    box-shadow: 0 0 10px #799be0;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.calendario-grade .dia-especial:hover {
+    transform: scale(1.2);
+    background-color: #c0cadd;
+    box-shadow: 0 0 15px #c0cadd;
+}
+
+/* ========================================================
+   7. INTERATIVIDADE DO TOCADOR DE VINIL (LADO DIREITO)
+   ======================================================== */
+.container-disco-direito {
+    position: absolute;
+    right: -250px;             
+    top: 350px;                
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.vinil-decorativo {
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, #799be0 8px, #000 9px, #111 25px, #222 40px, #111 60px, #222 80px, #000 100px);
+    border-radius: 50%;
+    border: 3px solid #5971a3c4;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.vinil-decorativo:hover {
+    transform: scale(1.05);
+}
+
+/* Classe controlada pelo JavaScript (Gira apenas quando a música toca) */
+.tocando {
+    animation: rotaçãoInfinita 4s linear infinite; 
+}
+
+/* Selo central interno ampliado com a capa do álbum */
+.vinil-decorativo::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110px;               
+    height: 110px;              
+    background-image: url("Imagens/artworks-6LZgkcDNqHlR-0-t500x500.jpg"); 
+    background-size: cover;    
+    background-position: center;
+    border-radius: 50%;        
+    border: 2px solid #111;    
+    z-index: 1;                
+}
+
+/* Furo central físico do disco de vinil */
+.vinil-decorativo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-color: rgba(15, 23, 42, 0.95);
+    border-radius: 50%;
+    z-index: 2; /* Fica acima da foto do álbum */
+}
+
+.legenda-disco {
+    color: #799be0;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    font-family: 'EB Garamond', serif;
+}
+
+@keyframes rotaçãoInfinita {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
